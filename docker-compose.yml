@@ -11,6 +11,24 @@ services:
       - .:/app/
     links:
       - php
+      - mariadb
+
+  mariadb:
+    build:
+      context: .
+      dockerfile: docker/mariadb/Dockerfile
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: mybb
+      MYSQL_USER: mybb
+      MYSQL_PASSWORD: changeme
+    logging:
+      driver: syslog
+      options:
+        tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
+    restart: on-failure
+    volumes:
+     - ${PWD}/mariadb:/var/lib/mysql
 
   php:
     build:
