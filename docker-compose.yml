@@ -1,16 +1,21 @@
 version: "3.3"
+
 services:
   web:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
     ports:
-        - "8080:80"
+      - "8080:80"
     volumes:
-        - ./code:/code
-        - ./site.conf:/etc/nginx/conf.d/site.conf
+      - .:/app/
     links:
-        - php
+      - php
+
   php:
-    image: php:8.1.0-fpm
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
     volumes:
-        - ./code:/code
+      - .:/app/
 
