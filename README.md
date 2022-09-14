@@ -5,5 +5,5 @@ A ready to use GitHub package which can provide you several containers for Datab
 ## Using
 
 ```sh
-$ docker-compose up
+$ docker-compose up -d
 ```
