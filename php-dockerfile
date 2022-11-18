@@ -1,0 +1,6 @@
+FROM php:latest
+
+RUN apt update && \
+	apt install -y zip libzip-dev libpng-dev
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql gd zip

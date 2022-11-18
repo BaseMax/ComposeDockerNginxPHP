@@ -1,38 +1,42 @@
-version: "3.3"
+version: '3.8'
 
 services:
-  web:
-    build:
-      context: .
-      dockerfile: docker/nginx/Dockerfile
-    ports:
-      - "8080:80"
-    volumes:
-      - .:/app/
-    links:
-      - php
-      - mariadb
-
-  mariadb:
-    build:
-      context: .
-      dockerfile: docker/mariadb/Dockerfile
-    environment:
-      MYSQL_ROOT_PASSWORD: changeme
-      MYSQL_DATABASE: mybb
-      MYSQL_USER: mybb
-      MYSQL_PASSWORD: changeme
-    logging:
-      driver: syslog
-      options:
-        tag: "{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})"
-    restart: on-failure
-    volumes:
-     - ${PWD}/mariadb:/var/lib/mysql
-
   php:
     build:
-      context: .
-      dockerfile: docker/php/Dockerfile
+      dockerfile: php-dockerfile
     volumes:
-      - .:/app/
+      - './php-files:/var/www/html'
+    depends_on:
+      - mariadb
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    links:
+      - 'php'
+    volumes:
+      - './php-files:/var/www/html'
+      - './nginx-conf:/etc/nginx/conf.d'
+    depends_on:
+      - php
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+    volumes:
+      - 'mysqldata:/var/lib/mysql'
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mariadb
+    depends_on:
+      -mariadb
+
+volumes:
+  mysqldata:
+
