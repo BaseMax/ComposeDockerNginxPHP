@@ -2,6 +2,22 @@
 
 A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker.
 
+## Why
+
+Docker Compose is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine.
+
+One of the main advantages of using this configuration is that it allows you to run all of the services in separate containers, which ensures that they are isolated from each other and from your host system. This makes it easy to manage and update the services independently of each other, and also makes it easy to switch out one service for another if needed.
+
+Another advantage of this configuration is that it makes it easy to configure the services. Each service has its own directory with configuration files that can be easily modified to suit your needs. Additionally, the Ansible integration makes it easy to provision and configure the services.
+
+Furthermore, this configuration is also customizable by adding new services or customizing the existing ones as per your requirement. The flexibility of this configuration makes it easy to use and adapt for different projects, whether for development or production.
+
+In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
+
+
+
+
+
 ## Requirements
 - Docker: Docker is a platform that allows you to easily deploy and run applications in containers. It makes it easy to set up and run software in a consistent environment. You can download Docker from here.
 - Docker Compose: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. You can download Docker Compose from here.
