@@ -15,6 +15,22 @@ Furthermore, this configuration is also customizable by adding new services or c
 In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
 
 
+## So I must use it?
+
+When you manually set up a web server environment on a physical or virtual server, you would typically have to install and configure each service individually. This can be a time-consuming and error-prone process, as you would have to manually install the software, configure it, and make sure that it is running correctly.
+
+Additionally, when you set up a web server environment manually, you would also have to manually manage the dependencies between the services. For example, you would have to make sure that the database service is running before the web server service, and that the web server service is configured to connect to the correct database.
+
+In contrast, using this Docker Compose configuration, all of the services are defined in a single file, docker-compose.yml, and the dependencies between them are also defined in this file. This makes it easy to understand and manage the dependencies between the services, and also makes it easy to add or remove services as needed.
+
+Additionally, when you set up a web server environment manually, the services are running on the host operating system and share the same resources and dependencies. This can lead to conflicts and issues if the services have different requirements. With Docker Compose, each service runs in its own container, which is isolated from the host system and other services. This eliminates the potential conflicts and issues caused by shared dependencies.
+
+Finally, with manual setup, you need to take care of security updates and configuration backups, whereas, with Docker Compose, it's easy to update, backup and restore the services.
+
+In summary, while manually setting up a web server environment on a physical or virtual server can be a time-consuming and error-prone process, using this Docker Compose configuration simplifies the process by allowing you to define and manage all of the services in a single file, and by isolating the services from each other and from the host system.
+
+
+
 
 
 
