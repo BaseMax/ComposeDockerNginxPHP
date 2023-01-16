@@ -7,9 +7,13 @@ services:
     restart: always
     depends_on:
       - mariadb
+    ports:
+      - 9000:9000
     volumes:
       - ./php/php.ini:/etc/php/8.1/fpm/php.ini
       - ./php/www:/var/www/html
+    networks:
+      - internal
 
 
   mariadb:
@@ -37,9 +41,11 @@ services:
     links:
       - php
     volumes:
-      - ./php/www:/var/www
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/sites:/etc/nginx/sites-available
+      - ./php/www:/var/www/html
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites/default.conf:/etc/nginx/conf.d/default
+    networks:
+      - internal
 
 
   phpmyadmin:
@@ -55,3 +61,8 @@ services:
       - 8080:80
     volumes:
       - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.user.inc.php
+
+
+networks:
+  internal:
+    driver: bridge
