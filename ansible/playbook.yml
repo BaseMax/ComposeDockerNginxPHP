@@ -1,0 +1,90 @@
+- name: Install docker and run docker-compose file for running LEMP stack
+  hosts: webservers
+  become: true
+  tasks:
+    - name: Install aptitude
+      apt:
+        name: aptitude
+        state: latest
+        update_cache: true
+
+    - name: Install required system packages
+      apt: 
+        pkg:
+          - apt-transport-https
+          - gnupg
+          - lsb-release
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - python3-pip
+          - virtualenv
+          - python3-setuptools
+        state: latest
+        update_cache: yes
+
+    - name: Add docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Update apt and install docker and docker compose
+      apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin
+        update_cache: yes
+
+    - name: Create directory for proxy configuration
+      file:
+        path: /etc/systemd/system/docker.service.d/
+        state: directory
+        mode: 0775
+
+    - name: Copy proxy configuration for docker
+      copy: 
+        src: ./proxy.conf
+        dest: /etc/systemd/system/docker.service.d/proxy.conf
+        mode: 0775
+
+    - name: Restart daemon_reload
+      command: systemctl daemon-reload
+    
+    - name: restart docker.servive
+      service:
+        name: docker
+        state: restarted
+
+    - name: Create directory for LEMP stack files
+      file: 
+        path: "{{ item.dest }}" 
+        state: directory 
+        mode: 0775
+      with_items:
+        - { dest: '/root/lemp/mariadb' }
+        - { dest: '/root/lemp/nginx' }
+        - { dest: '/root/lemp/php' }
+        - { dest: '/root/lemp/phpmyadmin' }
+        - { dest: '/root/lemp/nginx/sites' }
+        - { dest: '/root/lemp/php/www' }
+
+    - name: Copy LEMP stack file in server
+      copy: src={{ item.src }} dest={{ item.dest }}
+      with_items:
+        - { src: '../docker-compose.yml', dest: '/root/lemp/docker-compose.yml' }
+        - { src: '../mariadb/my.cnf', dest: '/root/lemp/mariadb/my.cnf' }
+        - { src: '../nginx/nginx.conf', dest: '/root/lemp/nginx/nginx.conf' }
+        - { src: '../nginx/sites/default.conf', dest: '/root/lemp/nginx/sites/default.conf' }
+        - { src: '../php/php.ini', dest: '/root/lemp/php/php.ini' }
+        - { src: '../php/www/index.php', dest: '/root/lemp/php/www/index.php' }
+        - { src: '../phpmyadmin/config.inc.php', dest: '/root/lemp/phpmyadmin/config.inc.php' }
+
+    - name: Run compose file
+      command: docker compose -f /root/lemp/docker-compose.yml up
