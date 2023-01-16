@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  php:
+    image: php:${PHP_IMAGE_TAG}
+    container_name: php
+    restart: always
+    depends_on:
+      - mariabd
+    volumes:
+      - ./php/php.ini:/etc/php/8.1/fpm/php.ini
+      - ./php/www:/var/www/html
+
+
+  mariadb:
+    image: mariabd:${MARIADB_IMAGE_TAG}
+    container_name: mariadb
+    restart: always
+    environment:
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - ./mariadb/my.cnf:/etc/mysql/my.cnf
+
+
+  nginx:
+    image: nginx:${NGINX_IMAGE_TAG}
+    container_name: nginx
+    restart: always
+    environment:
+      - NGINX_HOST=${NGINX_HOST}
+      - NGINX_PORT=${NGINX_PORT}
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - php
+    volumes:
+      - ./php/www:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/sites:/etc/nginx/sites-available
+
+
+  phpmyadmin:
+    image: phpmyadmin:${PHPMYADMIN_IMAGE_TAG}
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOST=${PMA_HOST}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    ports:
+      - 8080:80
+    volumes:
+      - ./phpmyadmin/config.inc.php:/etc/phpmyadmin/config.user.inc.php
