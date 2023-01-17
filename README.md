@@ -177,7 +177,7 @@ ansible-playbook -i hosts.ini playbook.yml
 
 And finally start project with running docker compose file.
 
-> **Warning**
+> **Warning**  
 > In all the above steps you must have `root` access to servers.
 
 ## License
