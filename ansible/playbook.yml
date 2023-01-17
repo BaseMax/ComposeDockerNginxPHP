@@ -6,14 +6,14 @@
   tasks:
     - name: Uninstall old versions of docker
       apt:
-        pkg: 
+        pkg:
           - docker
           - docker-engine
           - docker.io
           - containerd
           - runc
         state: absent
-  
+
     - name: Install aptitude
       apt:
         name: aptitude
@@ -21,7 +21,7 @@
         update_cache: yes
 
     - name: Install required system packages
-      apt: 
+      apt:
         pkg:
           - apt-transport-https
           - gnupg
@@ -61,14 +61,14 @@
         mode: 0775
 
     - name: Copy proxy configuration for docker
-      copy: 
+      copy:
         src: ./proxy.conf
         dest: /etc/systemd/system/docker.service.d/proxy.conf
         mode: 0775
 
     - name: Restart daemon_reload
       command: systemctl daemon-reload
-    
+
     - name: restart docker.servive
       service:
         name: docker
@@ -84,6 +84,6 @@
       synchronize:
         src: "{{ project_path }}"
         dest: /root
-        
+
     - name: Run compose file
       command: docker compose -f /root/lemp/docker-compose.yml up -d
