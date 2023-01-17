@@ -2,7 +2,7 @@
   hosts: webservers
   become: true
   vars:
-    ubuntu_release: <UBUNTU_RELEASE>
+    ubuntu_release: <UBUNTU_RELEASE>  # Edit this var
   tasks:
      - name: Uninstall old versions of docker
        apt:
@@ -78,7 +78,7 @@
   hosts: webservers
   become: true
   vars:
-    project_path: /home/maximilianedison/w/github/ComposeDockerNginxPHP
+    project_path: <PUT_ABSOLUTE_PATH_HERE>  # Edit this var
   tasks:
     - name: Copy all LEMP stack files to server
       synchronize:
