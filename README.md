@@ -117,11 +117,18 @@ The PHPMyAdmin configuration is located in the phpmyadmin directory. The config.
 
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software. If you want deploy this stack on one or more remote servers you must use [ansible playbooj](https://github.com/BaseMax/ComposeDockerNginxPHP/blob/main/ansible/playbook.yml).
 
+First you need to add your server information in `hosts.ini` file:
+
+```ini
+[webservers]
+<IP_OF_YOUR_SERVER> ansible_ssh_host=<IP_OF_YOUR_SERVER> ansible_ssh_port=<SSH_PORT_NUMBER> ansible_ssh_user=root ansible_ssh_private_key_file=<PATH_TO_PRIVATE_SSH_KEY>
+```
+
 This playbook first install latest version of docker and docker compose on remote servers with add docker GPG key and add Docker Repository to ubuntu server. You must specify ubuntu release in playbook var:
 
 ```yml
 vars:
-    ubuntu_release: jammy
+    ubuntu_release: <UBUNTU_RELEASE>
 ```
 
 You can specify proxy configuration for docker in server's in file `proxy.conf` in the `ansible` directory. see this:
@@ -133,8 +140,8 @@ Environment="HTTPS_PROXY=<PUT_YOUR_PROXY_URL_HERE>"
 Environment="NO_PROXY="localhost,127.0.0.1,::1"
 ```
 
-> **Note**
-> It is a good feature for **IRANIAN** people that the use of Docker and Docker Hub in iran is filtered
+> **Note**  
+> It is a good feature for **IRANIAN** people that the use of Docker and Docker Hub in iran is filtered.
 
 After installing docker and setting proxy for that, Playbook uploads the project files to the server in the `/root` directory according to the path you define in playbook:
 
