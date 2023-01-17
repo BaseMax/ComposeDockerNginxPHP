@@ -16,6 +16,10 @@ Based on the official Docker images:
 
 ## Requirements
 
+- Docker: Docker is a platform that allows you to easily deploy and run applications in containers. It makes it easy to set up and run software in a consistent environment. You can install docker with [this guide](https://docs.docker.com/engine/install/ubuntu/).
+- Docker Compose: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. You can install Docker Compose with [this guide](https://docs.docker.com/engine/install/ubuntu/).
+- If you want use ansible for deploy this stack on remote servers you must install ansible on you local machine and `python3` on remote servers.
+
 ### Host setup
 
 * [Docker Engine]() version **18.06.0** or newer
@@ -60,16 +64,6 @@ Additionally, when you set up a web server environment manually, the services ar
 Finally, with manual setup, you need to take care of security updates and configuration backups, whereas, with Docker Compose, it's easy to update, backup and restore the services.
 
 In summary, while manually setting up a web server environment on a physical or virtual server can be a time-consuming and error-prone process, using this Docker Compose configuration simplifies the process by allowing you to define and manage all of the services in a single file, and by isolating the services from each other and from the host system.
-
-
-
-
-
-
-## Requirements
-- Docker: Docker is a platform that allows you to easily deploy and run applications in containers. It makes it easy to set up and run software in a consistent environment. You can download Docker from here.
-- Docker Compose: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. You can download Docker Compose from here.
-- Ansible installed on your local machine
 
 ## Usage
 
