@@ -86,4 +86,4 @@
         dest: /root
         
     - name: Run compose file
-      command: docker compose -f /root/ComposeDockerNginxPHP/docker-compose.yml up -d
+      command: docker compose -f /root/lemp/docker-compose.yml up -d
