@@ -16,9 +16,9 @@ Based on the official Docker images:
 
 ## Requirements
 
-- Docker: Docker is a platform that allows you to easily deploy and run applications in containers. It makes it easy to set up and run software in a consistent environment. You can install docker with [this guide](https://docs.docker.com/engine/install/ubuntu/).
-- Docker Compose: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. You can install Docker Compose with [this guide](https://docs.docker.com/engine/install/ubuntu/).
-- If you want use ansible for deploy this stack on remote servers you must install ansible on you local machine and `python3` on remote servers.
+* **Docker**: Docker is a platform that allows you to easily deploy and run applications in containers. It makes it easy to set up and run software in a consistent environment. You can install docker with [this guide](https://docs.docker.com/engine/install/ubuntu/).
+* **Docker Compose**: Docker Compose is a tool for defining and running multi-container Docker applications. It allows you to define your application's services, networks, and volumes in a single docker-compose.yml file. You can install Docker Compose with [this guide](https://docs.docker.com/engine/install/ubuntu/).
+* **Ansible**: If you want use ansible for deploy this stack on remote servers you must install ansible on you local machine with [this guide](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and `python3` on remote servers.
 
 ### Host setup
 
@@ -38,10 +38,11 @@ By default, the stack exposes the following ports:
 * 80 and 443: Nginx
 * 8080: PHPMyAdmin
 
+---
 
 ## Philosophy
 
-Docker Compose is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine and servers.
+**Docker Compose** is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine and servers.
 
 One of the main advantages of using this configuration is that it allows you to run all of the services in separate containers, which ensures that they are isolated from each other and from your host system. This makes it easy to manage and update the services independently of each other, and also makes it easy to switch out one service for another if needed.
 
@@ -49,7 +50,7 @@ Another advantage of this configuration is that it makes it easy to configure th
 
 Furthermore, this configuration is also customizable by adding new services or customizing the existing ones as per your requirement. The flexibility of this configuration makes it easy to use and adapt for different projects, whether for development or production.
 
-In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine and remote host with ansible. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
+In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine and remote servers with ansible. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
 
 ## So I must use it?
 
