@@ -4,6 +4,16 @@
   vars:
     ubuntu_release: jammy
   tasks:
+     - name: Uninstall old versions of docker
+       apt:
+         pkg: 
+           - docker
+           - docker-engine
+           - docker.io
+           - containerd
+           - runc
+       state: absent
+  
     - name: Install aptitude
       apt:
         name: aptitude
