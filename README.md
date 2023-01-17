@@ -40,6 +40,22 @@ By default, the stack exposes the following ports:
 
 ---
 
+## Contents
+
+1. [Requirements](#requirements)
+   * [Host setup](#host-setup)
+2. [Philosophy](#philosophy)
+3. [So I must use it?](#so-i-must-use-it)
+4. [Usage](#usage)
+   * [Bringing up the stack](#bringing-up-the-stack)
+5. [Configuration](#configuration)
+   * [How to configure Nginx](#how-to-configure-nginx)
+   * [How to configure PHP](#how-to-configure-php)
+   * [How to configure MariaDB](#how-to-configure-mariadb)
+   * [How to configure PHPMyAdmin](#how-to-configure-phpmyadmin)
+   * [How to configure Ansible](#how-to-configure-ansible)
+6. [License](#license)
+
 ## Philosophy
 
 **Docker Compose** is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine and servers.
