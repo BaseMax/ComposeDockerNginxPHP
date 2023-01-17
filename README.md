@@ -186,4 +186,13 @@ This project is licensed under the GPLv3 license. Feel free to use and modify th
 
 This Docker Compose and Ansible configuration was created in 2022.
 
----
+### Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
