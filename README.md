@@ -98,19 +98,21 @@ Open `http://localhost:8080` in your browser for PHPMyAdmin. You will be prompte
 
 The nginx configuration file is located in the nginx directory. The `nginx.conf` file is main configuration file. It contains global settings for Nginx such as number of worker processes, the user that Nginx runs as, and the location of the log files. The `sites` directory contains the configuration for each site. The sites/default.conf file is the default configuration for all sites. It defines the server block for the default virtual host and sets the document root to `/var/www/html`. The sites/example.com.conf file is an example configuration for a virtual host for the example.com site. You can add additional virtual host configuration files in this directory for any other sites you want to run on your local machine.
 
+### How to configure PHP
 
-
-Ansible
-Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software.
-
-PHP
 The PHP configuration is located in the php directory. The php.ini file is the main configuration file. It contains settings for PHP such as the maximum execution time, the memory limit, and the error reporting level.
 
-MariaDB
+### How to configure MariaDB
+
 The MariaDB configuration is located in the mariadb directory. The my.cnf file is the main configuration file. It contains settings for MariaDB such as the character set, the collation, and the location of the data directory.
 
-PHPMyAdmin
+### How to configure PHPMyAdmin
+
 The PHPMyAdmin configuration is located in the phpmyadmin directory. The config.inc.php file is the main configuration file. It contains settings for PHPMyAdmin such as the server to connect to, the username and password for the server, and the default language.
+
+### How to configure Ansible
+
+Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software.
 
 ## License
 
