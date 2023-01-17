@@ -2,6 +2,10 @@
 
 A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker and also this project contain a Ansible playbook that allows you to run this LEMP stack in any number of remote hosts.
 
+<p align="center">
+  <img width="90%" src="https://github.com/BaseMax/ComposeDockerNginxPHP/blob/main/images/compose.gif">
+</p>
+
 Based on the official Docker images:
 
 * [Nginx](https://hub.docker.com/_/nginx)
