@@ -1,4 +1,4 @@
-- name: Install latest version of docker and docker compose
+- name: Install latest version of docker and docker compose and setting proxy for that
   hosts: webservers
   become: true
   vars:
