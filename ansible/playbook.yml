@@ -2,7 +2,7 @@
   hosts: webservers
   become: true
   vars:
-    ubuntu_release: jammy
+    ubuntu_release: <UBUNTU_RELEASE>
   tasks:
      - name: Uninstall old versions of docker
        apt:
