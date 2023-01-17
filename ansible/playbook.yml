@@ -62,29 +62,41 @@
         name: docker
         state: restarted
 
-    - name: Create directory for LEMP stack files
-      file: 
-        path: "{{ item.dest }}" 
-        state: directory 
-        mode: 0775
-      with_items:
-        - { dest: '/root/lemp/mariadb' }
-        - { dest: '/root/lemp/nginx' }
-        - { dest: '/root/lemp/php' }
-        - { dest: '/root/lemp/phpmyadmin' }
-        - { dest: '/root/lemp/nginx/sites' }
-        - { dest: '/root/lemp/php/www' }
+    # - name: Create lemp directory
+    #   file:
+    #     path: /root/lemp
+    #     state: directory
+    #     mode: 0755
 
-    - name: Copy LEMP stack file in server
-      copy: src={{ item.src }} dest={{ item.dest }}
-      with_items:
-        - { src: '../docker-compose.yml', dest: '/root/lemp/docker-compose.yml' }
-        - { src: '../mariadb/my.cnf', dest: '/root/lemp/mariadb/my.cnf' }
-        - { src: '../nginx/nginx.conf', dest: '/root/lemp/nginx/nginx.conf' }
-        - { src: '../nginx/sites/default.conf', dest: '/root/lemp/nginx/sites/default.conf' }
-        - { src: '../php/php.ini', dest: '/root/lemp/php/php.ini' }
-        - { src: '../php/www/index.php', dest: '/root/lemp/php/www/index.php' }
-        - { src: '../phpmyadmin/config.inc.php', dest: '/root/lemp/phpmyadmin/config.inc.php' }
+    - name: Copy all project files to server
+      synchronize:
+        src: /home/maximilianedison/w/github/ComposeDockerNginxPHP
+        dest: /root
+        
+
+    # - name: Create directory for LEMP stack files
+    #   file: 
+    #     path: "{{ item.dest }}" 
+    #     state: directory 
+    #     mode: 0775
+    #   with_items:
+    #     - { dest: '/root/lemp/mariadb' }
+    #     - { dest: '/root/lemp/nginx' }
+    #     - { dest: '/root/lemp/php' }
+    #     - { dest: '/root/lemp/phpmyadmin' }
+    #     - { dest: '/root/lemp/nginx/sites' }
+    #     - { dest: '/root/lemp/php/www' }
+
+    # - name: Copy LEMP stack file in server
+    #   copy: src={{ item.src }} dest={{ item.dest }}
+    #   with_items:
+    #     - { src: '../docker-compose.yml', dest: '/root/lemp/docker-compose.yml' }
+    #     - { src: '../mariadb/my.cnf', dest: '/root/lemp/mariadb/my.cnf' }
+    #     - { src: '../nginx/nginx.conf', dest: '/root/lemp/nginx/nginx.conf' }
+    #     - { src: '../nginx/sites/default.conf', dest: '/root/lemp/nginx/sites/default.conf' }
+    #     - { src: '../php/php.ini', dest: '/root/lemp/php/php.ini' }
+    #     - { src: '../php/www/index.php', dest: '/root/lemp/php/www/index.php' }
+    #     - { src: '../phpmyadmin/config.inc.php', dest: '/root/lemp/phpmyadmin/config.inc.php' }
 
     - name: Run compose file
-      command: docker compose -f /root/lemp/docker-compose.yml up
+      command: docker compose -f /root/ComposeDockerNginxPHP/docker-compose.yml up -d
