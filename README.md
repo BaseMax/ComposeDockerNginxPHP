@@ -112,13 +112,52 @@ The PHPMyAdmin configuration is located in the phpmyadmin directory. The config.
 
 ### How to configure Ansible
 
-Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software.
+> **Warning**  
+> For now only work in ubuntu servers
+
+Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software. If you want deploy this stack on one or more remote servers you must use [ansible playbooj](https://github.com/BaseMax/ComposeDockerNginxPHP/blob/main/ansible/playbook.yml).
+
+This playbook first install latest version of docker and docker compose on remote servers with add docker GPG key and add Docker Repository to ubuntu server. You must specify ubuntu release in playbook var:
+
+```yml
+vars:
+    ubuntu_release: jammy
+```
+
+You can specify proxy configuration for docker in server's in file `proxy.conf` in the `ansible` directory. see this:
+
+```ini
+[Service]
+Environment="HTTP_PROXY=<PUT_YOUR_PROXY_URL_HERE>"
+Environment="HTTPS_PROXY=<PUT_YOUR_PROXY_URL_HERE>"
+Environment="NO_PROXY="localhost,127.0.0.1,::1"
+```
+
+> **Note**
+> It is a good feature for **IRANIAN** people that the use of Docker and Docker Hub in iran is filtered
+
+After installing docker and setting proxy for that, Playbook uploads the project files to the server in the `/root` directory according to the path you define in playbook:
+
+```yml
+vars:
+    project_path: <PUT_ABSOLUTE_PATH_HERE>
+```
+
+After all above steps you must go in ansible directory and run:
+
+```console
+ansible-playbook -i hosts.ini playbook.yml
+```
+
+And finally start project with running docker compose file.
+
+> **Warning**
+> In all the above steps you must have `root` access to servers
 
 ## License
 
-  This project is licensed under the GPLv3 license. Feel free to use and modify the code as you see fit, but please make sure to comply with the terms of the license.
+This project is licensed under the GPLv3 license. Feel free to use and modify the code as you see fit, but please make sure to comply with the terms of the license.
 
 This Docker Compose and Ansible configuration was created in 2022.
 
-
-  
+---
