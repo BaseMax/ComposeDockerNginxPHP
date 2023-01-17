@@ -1,10 +1,22 @@
-# Docker Compose Nginx PHP MariaDB (LEMP stack)
+# LEMP stack on docker
 
-A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker and also this project contain a Ansible playbook that allows you to tun this LEMP stack in any number of remote hosts.
+A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker and also this project contain a Ansible playbook that allows you to run this LEMP stack in any number of remote hosts.
 
-## Why
+Based on the official Docker images:
 
-Docker Compose is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine.
+* [Nginx](https://hub.docker.com/_/nginx)
+* [PHPMyAdmin](https://hub.docker.com/_/phpmyadmin)
+* [PHP](https://hub.docker.com/_/php)
+* [MariaDB](https://hub.docker.com/_/mariadb)
+
+> **Note**  
+> You can change the version and tag of images in [.env](https://github.com/BaseMax/ComposeDockerNginxPHP/blob/main/.env) file.
+
+---
+
+## Philosophy
+
+Docker Compose is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine and servers.
 
 One of the main advantages of using this configuration is that it allows you to run all of the services in separate containers, which ensures that they are isolated from each other and from your host system. This makes it easy to manage and update the services independently of each other, and also makes it easy to switch out one service for another if needed.
 
@@ -12,8 +24,7 @@ Another advantage of this configuration is that it makes it easy to configure th
 
 Furthermore, this configuration is also customizable by adding new services or customizing the existing ones as per your requirement. The flexibility of this configuration makes it easy to use and adapt for different projects, whether for development or production.
 
-In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
-
+In summary, this Docker Compose configuration provides a quick and easy way to set up a complete web server environment on your local machine and remote host with ansible. It is easy to use, customizable, and allows you to run all of the services in isolated containers, which makes it easy to manage and update them. So, if you're looking for a powerful and flexible tool to help you set up and run your web applications, this Docker Compose configuration is definitely worth checking out.
 
 ## So I must use it?
 
