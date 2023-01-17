@@ -55,6 +55,7 @@ By default, the stack exposes the following ports:
    * [How to configure PHPMyAdmin](#how-to-configure-phpmyadmin)
    * [How to configure Ansible](#how-to-configure-ansible)
 6. [License](#license)
+7. [Contributors](#contributors)
 
 ## Philosophy
 
@@ -186,7 +187,7 @@ This project is licensed under the GPLv3 license. Feel free to use and modify th
 
 This Docker Compose and Ansible configuration was created in 2022.
 
-### Contributors
+## Contributors
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
