@@ -68,12 +68,25 @@ In summary, while manually setting up a web server environment on a physical or 
 
 ## Usage
 
-Clone this repository by running git clone https://github.com/basemax/ComposeDockerNginxPHP.git in your terminal.
-Navigate to the cloned repository by running cd docker-compose-lemp
-Run docker-compose up -d to start the containers in detached mode.
-Open http://localhost:80 in your browser for Nginx. You should see the default Nginx welcome page.
-Open http://localhost:8080 in your browser for PHPMyAdmin. You will be prompted to enter a username and password to log in. The default username is root and the default password is password.
+### Bringing up the stack
 
+Clone this repository onto the Docker host that will run the stack:
+
+```console
+git clone https://github.com/BaseMax/ComposeDockerNginxPHP.git
+```
+
+then navigate to project directory and start the stack's services locally using Docker Compose:
+
+```console
+docker-compose up
+```
+
+> **Note**  
+> You can also run all services in the background (detached mode) by appending the `-d` flag to the above command.
+
+Now for test, Open `http://localhost:80` for Nginx. You should see the default Nginx welcome page.
+Open `http://localhost:8080` in your browser for PHPMyAdmin. You will be prompted to enter a username and password to log in. The default username is `root` and the default password is `changethis`.
 
 ## Configuration
 
