@@ -79,7 +79,7 @@ git clone https://github.com/BaseMax/ComposeDockerNginxPHP.git
 then navigate to project directory and start the stack's services locally using Docker Compose:
 
 ```console
-docker-compose up
+docker compose up
 ```
 
 > **Note**  
@@ -90,8 +90,15 @@ Open `http://localhost:8080` in your browser for PHPMyAdmin. You will be prompte
 
 ## Configuration
 
-Nginx
-The Nginx configuration is located in the nginx directory. The nginx.conf file is the main configuration file. It contains global settings for Nginx such as the number of worker processes, the user that Nginx runs as, and the location of the log files. The sites directory contains the configuration for each site. The sites/default.conf file is the default configuration for all sites. It defines the server block for the default virtual host and sets the document root to /var/www/html. The sites/example.com.conf file is an example configuration for a virtual host for the example.com site. You can add additional virtual host configuration files in this directory for any other sites you want to run on your local machine.
+> **Note**  
+> Configuration is not dynamically reloaded, you will need to restart individual components after any configuration
+> change.
+
+### How to configure Nginx
+
+The nginx configuration file is located in the nginx directory. The `nginx.conf` file is main configuration file. It contains global settings for Nginx such as number of worker processes, the user that Nginx runs as, and the location of the log files. The `sites` directory contains the configuration for each site. The sites/default.conf file is the default configuration for all sites. It defines the server block for the default virtual host and sets the document root to `/var/www/html`. The sites/example.com.conf file is an example configuration for a virtual host for the example.com site. You can add additional virtual host configuration files in this directory for any other sites you want to run on your local machine.
+
+
 
 Ansible
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software.

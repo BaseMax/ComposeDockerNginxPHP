@@ -43,7 +43,7 @@ services:
     volumes:
       - ./php/www:/var/www/html
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx/sites/default.conf:/etc/nginx/conf.d/default
+      - ./nginx/sites/:/etc/nginx/conf.d/
     networks:
       - internal
 
