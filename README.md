@@ -1,6 +1,6 @@
 # Docker Compose Nginx PHP MariaDB (LEMP stack)
 
-A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker.
+A ready to use Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin). This configuration allows you to easily set up and run a web server with a database on your local machine using Docker and also this project contain a Ansible playbook that allows you to tun this LEMP stack in any number of remote hosts.
 
 ## Why
 
