@@ -14,6 +14,27 @@ Based on the official Docker images:
 
 ---
 
+## Requirements
+
+### Host setup
+
+* [Docker Engine]() version **18.06.0** or newer
+* [Docker Compose]() version **2.3.4** or newer
+
+> **Warning**  
+> For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2))
+
+> **Note**  
+> Especially on Linux, make sure your user has the [required permissions](https://docs.docker.com/engine/install/linux-postinstall/) to interact with the Docker
+> daemon.
+
+By default, the stack exposes the following ports:
+
+* 9000: PHP
+* 80 and 443: Nginx
+* 8080: PHPMyAdmin
+
+
 ## Philosophy
 
 Docker Compose is a powerful tool for simplifying the process of setting up and running complex applications. This particular Docker Compose configuration for a LEMP stack (Nginx, PHP, MariaDB, and PHPMyAdmin) makes it easy to set up a complete web server environment on your local machine and servers.
