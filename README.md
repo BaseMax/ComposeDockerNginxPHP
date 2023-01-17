@@ -189,6 +189,6 @@ This Docker Compose and Ansible configuration was created in 2022.
 
 ## Contributors
 
-<a href="https://github.com/BaseMax/Python/graphs/contributors">
+<a href="https://github.com/BaseMax/ComposeDockerNginxPHP">
   <img src="https://contrib.rocks/image?repo=BaseMax/ComposeDockerNginxPHP"/>
 </a>
