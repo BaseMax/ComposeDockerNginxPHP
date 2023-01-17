@@ -22,12 +22,12 @@ Based on the official Docker images:
 
 ### Host setup
 
-* [Docker Engine]() version **18.06.0** or newer
-* [Docker Compose]() version **2.3.4** or newer
+* [Docker Engine](https://docs.docker.com/engine/release-notes/) version **18.06.0** or newer
+* [Docker Compose](https://docs.docker.com/compose/release-notes/) version **2.3.4** or newer
 
 > **Warning**  
 > For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2))
-
+>
 > **Note**  
 > Especially on Linux, make sure your user has the [required permissions](https://docs.docker.com/engine/install/linux-postinstall/) to interact with the Docker
 > daemon.
@@ -74,7 +74,9 @@ Run docker-compose up -d to start the containers in detached mode.
 Open http://localhost:80 in your browser for Nginx. You should see the default Nginx welcome page.
 Open http://localhost:8080 in your browser for PHPMyAdmin. You will be prompted to enter a username and password to log in. The default username is root and the default password is password.
 
+
 ## Configuration
+
 Nginx
 The Nginx configuration is located in the nginx directory. The nginx.conf file is the main configuration file. It contains global settings for Nginx such as the number of worker processes, the user that Nginx runs as, and the location of the log files. The sites directory contains the configuration for each site. The sites/default.conf file is the default configuration for all sites. It defines the server block for the default virtual host and sets the document root to /var/www/html. The sites/example.com.conf file is an example configuration for a virtual host for the example.com site. You can add additional virtual host configuration files in this directory for any other sites you want to run on your local machine.
 
