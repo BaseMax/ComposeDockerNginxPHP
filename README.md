@@ -26,7 +26,7 @@ Based on the official Docker images:
 * [Docker Compose](https://docs.docker.com/compose/release-notes/) version **2.3.4** or newer
 
 > **Warning**  
-> For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2))
+> For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2)).
 >
 > **Note**  
 > Especially on Linux, make sure your user has the [required permissions](https://docs.docker.com/engine/install/linux-postinstall/) to interact with the Docker
@@ -113,7 +113,7 @@ The PHPMyAdmin configuration is located in the phpmyadmin directory. The config.
 ### How to configure Ansible
 
 > **Warning**  
-> For now only work in ubuntu servers
+> For now only work in ubuntu servers.
 
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It is used to automate the management of remote servers, including the installation and configuration of software. If you want deploy this stack on one or more remote servers you must use [ansible playbooj](https://github.com/BaseMax/ComposeDockerNginxPHP/blob/main/ansible/playbook.yml).
 
@@ -123,6 +123,9 @@ First you need to add your server information in `hosts.ini` file:
 [webservers]
 <IP_OF_YOUR_SERVER> ansible_ssh_host=<IP_OF_YOUR_SERVER> ansible_ssh_port=<SSH_PORT_NUMBER> ansible_ssh_user=root ansible_ssh_private_key_file=<PATH_TO_PRIVATE_SSH_KEY>
 ```
+
+> **Warning**  
+> In order to Playbook work properly, the name of each host must be exactly th IP of the same server.
 
 This playbook first install latest version of docker and docker compose on remote servers with add docker GPG key and add Docker Repository to ubuntu server. You must specify ubuntu release in playbook var:
 
@@ -159,7 +162,7 @@ ansible-playbook -i hosts.ini playbook.yml
 And finally start project with running docker compose file.
 
 > **Warning**
-> In all the above steps you must have `root` access to servers
+> In all the above steps you must have `root` access to servers.
 
 ## License
 
