@@ -30,7 +30,7 @@ Based on the official Docker images:
 * [Docker Compose](https://docs.docker.com/compose/release-notes/) version **2.3.4** or newer
 
 > **Warning**  
-> For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2)) and If you are running Debian stable please set version number to `3.3` in `docker-compose.yml` file.
+> For running this stack you must use `docker compose up` instead of `docker-compose up` (see [this](https://github.com/BaseMax/ComposeDockerNginxPHP/issues/2)) and if you are running Debian stable please set version number to `3.3` in `docker-compose.yml` file.
 >
 > **Note**  
 > Especially on Linux, make sure your user has the [required permissions](https://docs.docker.com/engine/install/linux-postinstall/) to interact with the Docker
