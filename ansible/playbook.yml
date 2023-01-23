@@ -14,12 +14,6 @@
           - runc
         state: absent
 
-    - name: Install aptitude
-      apt:
-        name: aptitude
-        state: latest
-        update_cache: yes
-
     - name: Install required system packages
       apt:
         pkg:
